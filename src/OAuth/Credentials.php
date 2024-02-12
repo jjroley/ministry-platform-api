@@ -42,6 +42,18 @@ class Credentials
     private $token_type = null;
 
     /**
+     * The access token to be used in API requests
+     * @var null
+     */
+    private $accessToken = null;
+
+    /**
+     * The refresh token to be used to get a new access token
+     * @var null
+     */
+    private $refreshToken = null;
+
+    /**
      * The time an access token expires - calculated from the $expires_in
      * value
      * 

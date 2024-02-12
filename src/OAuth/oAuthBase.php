@@ -77,6 +77,12 @@ class oAuthBase
     protected $errorMessage;
 
     /**
+     * API endpoint for the client you are connecting to
+     * @var null
+     */
+    public $apiEndpoint = null;
+
+    /**
      * Fields used by Guzzle to call endpoints
      */
     protected $oAuthFields = null;
@@ -148,12 +154,12 @@ class oAuthBase
      */
     protected function getCongfigParameters()
     {
-        $this->apiEndpoint = getenv('MP_API_ENDPOINT', null);
-        $this->oAuthDiscoveryUrl = getenv('MP_OAUTH_DISCOVERY_ENDPOINT', null);
-        $this->mpClientId = getenv('MP_CLIENT_ID', null);
-        $this->mpClientSecret = getenv('MP_CLIENT_SECRET', null);
-        $this->scope = getenv('MP_API_SCOPE', null);
-        $this->mpRedirectURL = getenv('MP_OAUTH_REDIRECT_URL', null);
+        $this->apiEndpoint = getenv('MP_API_ENDPOINT', false);
+        $this->oAuthDiscoveryUrl = getenv('MP_OAUTH_DISCOVERY_ENDPOINT', false);
+        $this->mpClientId = getenv('MP_CLIENT_ID', false);
+        $this->mpClientSecret = getenv('MP_CLIENT_SECRET', false);
+        $this->scope = getenv('MP_API_SCOPE', false);
+        $this->mpRedirectURL = getenv('MP_OAUTH_REDIRECT_URL', false);
 
     }
 
